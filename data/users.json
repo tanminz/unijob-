@@ -1,0 +1,66 @@
+[
+    {
+        "id": "7afff581-81a8-4a35-af53-ffb98e3a3125",
+        "fullname": "Dương Tấn Minh",
+        "email": "a@student.uel.edu.vn",
+        "password": "1234",
+        "role": "student",
+        "status": "approved"
+    },
+    {
+        "id": "d211d62f-ce3d-4ebc-8456-957d67c47a8d",
+        "fullname": "binz",
+        "email": "a@gmail.com",
+        "password": "1111",
+        "role": "employer",
+        "status": "pending"
+    },
+    {
+        "id": "admin001",
+        "fullname": "CTSV Admin",
+        "email": "ctsv@vnu.edu.vn",
+        "password": "admin123",
+        "role": "admin",
+        "status": "approved"
+    },
+    {
+        "id": "ff@gmail.com",
+        "fullname": "ff",
+        "email": "ff@gmail.com",
+        "password": "1234",
+        "role": "employer",
+        "status": "approved",
+        "company_name": "ssss",
+        "license": "ffgmail.com_1.1_Test_bank.docx.pdf"
+    },
+    {
+        "id": "M@gmail.com",
+        "fullname": "dd",
+        "email": "M@gmail.com",
+        "password": "mmm",
+        "role": "employer",
+        "status": "bending",
+        "company_name": "mmm",
+        "license": "Mgmail.com_bmi-09-06-02.pdf"
+    },
+    {
+        "id": "ct2@vnu.edu.vn",
+        "fullname": "khả nhi",
+        "email": "ct2@vnu.edu.vn",
+        "password": "23240121",
+        "role": "admin",
+        "status": "approved",
+        "company_name": "",
+        "license": ""
+    },
+    {
+        "id": "duongtanminh2306@gmail.com",
+        "fullname": "Dương Tấn Minh",
+        "email": "duongtanminh2306@gmail.com",
+        "password": "111",
+        "role": "employer",
+        "status": "pending",
+        "company_name": "111",
+        "license": "duongtanminh2306gmail.com_1.1_Test_bank.docx.pdf"
+    }
+]

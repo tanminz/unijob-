@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Register - UniJobs+</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/custom-bs.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/bootstrap-select.min.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/icomoon/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='fonts/line-icons/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/animate.min.css') }}">
+
+    <style>
+      body {
+        background-image: url("{{ url_for('static', filename='images/login_bg.png') }}");
+        background-size: cover;
+        background-position: center top;
+        background-repeat: no-repeat;
+      }
+
+      .register-box {
+        background-color: rgba(255, 255, 255, 0.92);
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+        margin-top: 50px;
+        margin-bottom: 50px;
+        min-height: 600px; /* ✅ giữ form cao ổn định */
+        transition: all 0.3s ease-in-out;
+}
+
+
+      .btn-primary {
+        background-color: #2b71e8;
+        border-color: #2b71e8;
+      }
+
+      .btn-primary:hover {
+        background-color: #1f5dd1;
+        border-color: #1f5dd1;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container d-flex justify-content-center">
+      <div class="col-md-6 register-box">
+        <div class="text-center mb-4">
+          <img src="{{ url_for('static', filename='images/logo unijob index.png') }}" alt="UniJobs+ Logo" style="max-height: 200px;">
+        </div>
+
+        <h2 class="text-center mb-4">Create a New Account</h2>
+
+        <form method="POST" action="/register" enctype="multipart/form-data">
+          <div class="form-group">
+            <label for="fullname">Full Name</label>
+            <input type="text" id="fullname" name="fullname" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email">Student or Company Email</label>
+            <input type="email" id="email" name="email" class="form-control" placeholder="e.g. student@st.uel.edu.vn" required>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label for="confirm_password">Confirm Password</label>
+            <input type="password" id="confirm_password" name="confirm_password" class="form-control" required>
+          </div>
+
+          <div class="form-group">
+            <label>Role</label><br>
+            <label><input type="radio" name="role" value="student" checked> Student</label>
+            <label class="ml-3"><input type="radio" name="role" value="employer"> Employer</label>
+            <label class="ml-3"><input type="radio" name="role" value="admin"> CTSV</label>
+          </div>
+
+          <!-- Employer section -->
+          <div id="employer-section" style="display: none;">
+            <div class="form-group">
+              <label for="company_name">Company Name</label>
+              <input type="text" id="company_name" name="company_name" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="license">Upload Business License</label>
+              <input type="file" id="license" name="license" class="form-control-file">
+            </div>
+          </div>
+
+          <!-- Admin (CTSV) section -->
+          <div class="form-group" id="admin-code-group" style="display: none;">
+            <label for="admin_code">Admin Verification Code</label>
+            <input type="text" id="admin_code" name="admin_code" class="form-control" placeholder="Enter admin code">
+          </div>
+
+          <div class="form-group text-center">
+            <input type="submit" value="Register" class="btn btn-primary btn-block text-white">
+          </div>
+
+          <div class="text-center">
+            Already have an account? <a href="{{ url_for('main.login') }}">Log in here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- JS -->
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const roleRadios = document.querySelectorAll('input[name="role"]');
+        const employerSection = document.getElementById("employer-section");
+        const adminCodeGroup = document.getElementById("admin-code-group");
+
+        roleRadios.forEach(radio => {
+          radio.addEventListener('change', function () {
+            if (this.value === 'employer') {
+              employerSection.style.display = 'block';
+              adminCodeGroup.style.display = 'none';
+            } else if (this.value === 'admin') {
+              employerSection.style.display = 'none';
+              adminCodeGroup.style.display = 'block';
+            } else {
+              employerSection.style.display = 'none';
+              adminCodeGroup.style.display = 'none';
+            }
+          });
+        });
+      });
+    </script>
+
+    <script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ url_for('static', filename='js/custom.js') }}"></script>
+  </body>
+</html>
